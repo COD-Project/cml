@@ -105,3 +105,16 @@ double m_fact(double x)
 {
   return (isinteger(x) && x > -1) ? ((x == 0) ? 1 : x*m_fact(x - 1)) : NAN;
 }
+
+// Returns the smallest integer value greater than or equal to x.
+double m_ceil(double x)
+{
+  int z = (int)x;
+  return (x - z == 0.0) ? x : z + 1.0;
+}
+
+// Returns the largest integer value less than or equal to x.
+double m_floor(double x)
+{
+  return (int)x;
+}

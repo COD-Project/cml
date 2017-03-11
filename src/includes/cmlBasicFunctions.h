@@ -37,6 +37,8 @@ double m_dive(double, ...);
 double m_fmod(double, ...);
 double m_ared(double, ...);
 double m_fact(double, ...);
+double m_ceil(double, ...);
+double m_floor(double, ...);
 
 #endif
 
@@ -51,7 +53,7 @@ double m_exp(double, ...);
 double m_ln(double, ...);
 double m_logE(double, ...);
 double m_logB(double, ...);
-double m_log(double, ...);
+double m_log10(double, ...);
 double m_pow(double, ...);
 double m_root(double, ...);
 double m_sqrt(double, ...);
