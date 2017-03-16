@@ -37,6 +37,7 @@ double m_ln(double x)
 }
 
 
+
 /**
   * ln(x) function developed by using Riemman Sum Function
   *
@@ -44,13 +45,31 @@ double m_ln(double x)
   *
   * @return double ln(x)
 
-double __m_ln(double t) {
-  return 1/t;
-}
-
-double m_ln(double x)
+double m_ln(double t)
 {
-  return (x > 0) ? m_rs(1.0, x, &__m_ln) : NAN;
+  if (t <= 0) {
+    return NAN;
+  }
+  int partitions = TOPL;
+  double sum = 0.0,
+         x = 0.0,
+         ls = t,
+         li = 1.0,
+         mediumPoint,
+         deltaX,
+         deltaT;
+
+  deltaT = ls - li;
+  deltaX = deltaT/partitions;
+  x = li;
+
+  while (x < ls) {
+    mediumPoint = (x + (x + deltaX))/2.0;
+    sum = sum + deltaX/mediumPoint;
+    x = x + deltaX;
+  }
+
+  return sum;
 }
 */
 
