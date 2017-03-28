@@ -15,8 +15,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-#ifndef __CML_UF_
-#define __CML_UF_
+#ifndef USF_H
+#define USF_H
 
 // ---> Usefull Functions <---
 double m_sgn(double, ...);
@@ -42,8 +42,7 @@ double m_floor(double, ...);
 
 #endif
 
-#ifndef __CML_BF_
-#define __CML_BF_
+#ifndef BAF_H
 
 // ---> Euler definitions <---
 double m_exp(double, ...);

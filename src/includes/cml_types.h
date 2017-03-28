@@ -15,36 +15,14 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-#ifndef __CML_ET_
-#define __CML_ET_
+#ifndef TYPES_H
+#define TYPES_H
 
 
-/* Prototypes */
-// ---> Basic trigonometric functions <---
-double m_sin(double, ...);
-double m_cos(double, ...);
-double m_tan(double, ...);
-double m_sec(double, ...);
-double m_csc(double, ...);
-double m_cot(double, ...);
-double m_atan(double, ...);
-
-
-#endif
-
-#ifndef __CML_NET_
-#define __CML_NET_
-
-
-/* Prototypes */
-// ---> Hyperbolic functions
-double m_sinh(double, ...);
-double m_cosh(double, ...);
-double m_tanh(double, ...);
-double m_sech(double, ...);
-double m_csch(double, ...);
-double m_coth(double, ...);
-double m_atanh(double, ...);
+typedef struct {
+  double Re;
+  double Im;
+} complex;
 
 
 #endif

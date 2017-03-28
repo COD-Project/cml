@@ -15,13 +15,13 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
+#ifndef CALC_H
+#define CALC_H
 
-#ifndef __CML_CONF_
-#define __CML_CONF_
 
-#include <stdio.h>
-#include <float.h>
-
-#define TOPL      100000                    /* Top limit for Taylor Series */
+double m_gf(double, ...);
+double m_gamma(double, ...);
+double m_f(double, ...);
+double m_rs(double, ...);
 
 #endif

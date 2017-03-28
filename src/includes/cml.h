@@ -16,19 +16,19 @@ You should have received a copy of the GNU General Public License
 along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
 
-#ifndef __CML__
-#define __CML__
+#ifndef CML_H
+#define CML_H
 
 
 /* Some library config */
-#include "cmlConfig.h"
+#include "cml_config.h"
 
 /* ------------------- */
-#include "cmlTypes.h"
-#include "cmlConsts.h"
-#include "cmlGeometry.h"
-#include "cmlBasicFunctions.h"
-#include "cmlTrigonometry.h"
-#include "cmlCalculus.h"
+#include "cml_types.h"
+#include "cml_consts.h"
+#include "cml_geometry.h"
+#include "cml_basic_functions.h"
+#include "cml_trigonometry.h"
+#include "cml_calculus.h"
 
 #endif

@@ -1,7 +1,7 @@
 # cml
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
-[![Version: v0.1](https://img.shields.io/badge/Version-v0.2-blue.svg)](https://github.com/COD-Project/cml/releases/tag/v0.1)
+[![Version: v0.3](https://img.shields.io/badge/Version-v0.3-blue.svg)](https://github.com/COD-Project/cml/releases/tag/v0.1)
 
 ## Introduction
 

@@ -15,13 +15,9 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-#ifndef __CML_CAL_
-#define __CML_CAL_
+#ifndef EUG_H
+#define EUG_H
 
 
-double m_gf(double, ...);
-double m_gamma(double, ...);
-double m_f(double, ...);
-double m_rs(double, ...);
 
 #endif
