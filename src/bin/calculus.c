@@ -16,7 +16,7 @@ You should have received a copy of the GNU General Public License
 along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
 #define CALC_H
-#include "includes/cml.h"
+#include "../includes/cml.h"
 
 
 /** f is the function to be integrated into the Riemann sum function
