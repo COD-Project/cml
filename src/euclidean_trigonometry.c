@@ -23,7 +23,6 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
   * Basic trigonometric functions
   */
 
-// reducir angulo a 2PI
 
 /**
   * sin(x) function developed by using Taylor Series
@@ -116,11 +115,21 @@ double m_cot(double x)
   */
 double m_atan(double x)
 {
+  /*
   int i;
-  double ai_n = x, p = ai_n;
-  for (i = 1; i <= TOPL; i += 2) {
+  double ai_n = x,
+         p = ai_n;
+  int top = (int) TOPL/2.0;
+  for (i = 1; i <= top; i += 2) {
     ai_n = -ai_n*x*x;
     p = p + ai_n/(i+2);
   }
   return p;
+  */
+  return NAN;
+}
+
+double m_atan2(double y, double x)
+{
+  return (y == 0 && x == 0) ? NAN : HALFPI*m_sgn(y) - m_atan(y/x);
 }

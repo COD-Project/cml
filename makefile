@@ -1,8 +1,8 @@
-BIN_FOLDER=./src/bin
+SOURCE_FOLDER=./src
 INCLUDES_FOLDER=./src/includes
-TEST_FOLDER=./test
-BUILD_FOLDER=./test/.build
-TEMPORAL_FOLDER=./test/.temp
+TEST_FOLDER=./tests/src
+BUILD_FOLDER=./tests/.build
+TEMPORAL_FOLDER=./tests/.temp
 TEST_OUTPUT_NAME=cmlMainTest
 
 
@@ -21,12 +21,10 @@ DEBUG=-g
 # Rules
 
 .PHONY:	all clean folders test
-all:	folders
-		gcc $(TEST_FOLDER)/main.c $(BIN_FOLDER)/usefull_functions.c $(BIN_FOLDER)/general_functions.c $(BIN_FOLDER)/euclidean_trigonometry.c $(BIN_FOLDER)/non_euclidean_trigonometry.c $(BIN_FOLDER)/calculus.c -o $(BUILD_FOLDER)/$(TEST_OUTPUT_NAME) $(CFLAGS) $(DEBUG)
-
+all:	folders c.o
 
 c.o:
-	gcc $(TEST_FOLDER)/main.c $(BIN_FOLDER)/usefull_functions.c $(BIN_FOLDER)/general_functions.c $(BIN_FOLDER)/euclidean_trigonometry.c $(BIN_FOLDER)/non_euclidean_trigonometry.c $(BIN_FOLDER)/calculus.c -o $(BUILD_FOLDER)/$(TEST_OUTPUT_NAME) $(CFLAGS) $(DEBUG)
+	gcc $(TEST_FOLDER)/main.c $(SOURCE_FOLDER)/oop/Field.c $(SOURCE_FOLDER)/oop/Real.c $(SOURCE_FOLDER)/oop/Rational.c $(SOURCE_FOLDER)/oop/Complex.c $(SOURCE_FOLDER)/usefull_functions.c $(SOURCE_FOLDER)/general_functions.c $(SOURCE_FOLDER)/euclidean_trigonometry.c $(SOURCE_FOLDER)/non_euclidean_trigonometry.c $(SOURCE_FOLDER)/euclidean_geometry.c $(SOURCE_FOLDER)/non_euclidean_geometry.c $(SOURCE_FOLDER)/calculus.c -o $(BUILD_FOLDER)/$(TEST_OUTPUT_NAME) $(CFLAGS) $(DEBUG)
 
 
 clean:
@@ -40,12 +38,12 @@ test:
 
 bytes:
 	@echo Bytes per file:
-	@wc -c $(BIN_FOLDER)/** $(INCLUDES_FOLDER)/** makefile
+	@wc -c $(SOURCE_FOLDER)/** $(INCLUDES_FOLDER)/** makefile
 
 char:
 	@echo Characts per file:
-	@wc -m $(BIN_FOLDER)/** $(INCLUDES_FOLDER)/** makefile
+	@wc -m $(SOURCE_FOLDER)/** $(INCLUDES_FOLDER)/** makefile
 
 lines:
 	@echo Code lines per file:
-	@wc -l $(BIN_FOLDER)/** $(INCLUDES_FOLDER)/** makefile
+	@wc -l $(SOURCE_FOLDER)/** $(INCLUDES_FOLDER)/** makefile

@@ -16,7 +16,7 @@ You should have received a copy of the GNU General Public License
 along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
 
-#include "./../src/includes/cml.h"
+#include "../../includes/cml.h"
 
 void test()
 {
@@ -42,7 +42,7 @@ void test()
   printf("%s\n", "The following hyperbolic trigonometric identities are verified:");
   printf("%s%g\n","   |--> cosh^2(x)-sinh^2(x) = ", m_pow(m_cosh(n), 2.0) - m_pow(m_sinh(n), 2.0));
 
-
+  printf("%g\n", m_atan(PI));
 }
 
 int main(int argc, char const *argv[]) {

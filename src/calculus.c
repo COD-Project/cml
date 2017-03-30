@@ -27,7 +27,8 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
   */
 double m_f(double x)
 {
-  return 1.0/x;
+  // you should define your own integrable function
+  return x;
 }
 
 /** This function performs Riemann sums with regular partitions in the interval [li, ls] for the function f(x)

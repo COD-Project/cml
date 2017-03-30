@@ -15,13 +15,5 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-
-#ifndef CONF_H
-#define CONF_H
-
-#include <stdio.h>
-#include <float.h>
-
-#define TOPL      100000                    /* Top limit for Taylor Series */
-
-#endif
+#define JSON_H
+#include "../includes/json.h"
