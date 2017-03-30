@@ -1,9 +1,11 @@
-#ifndef RATN_H
-#define RATN_H
+#ifndef RAT_H
+#define RAT_H
 
 
 typedef struct rational
 {
+  // Parent
+  Field * super;
   int num;
   int den;
   int (*getNum)(struct rational *);

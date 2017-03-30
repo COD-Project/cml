@@ -1,9 +1,11 @@
-#ifndef COMPLEXN_H
-#define COMPLEXN_H
+#ifndef COMPLEX_H
+#define COMPLEX_H
 
 
 typedef struct complex
 {
+  // Parent
+  Field * super;
   double re;
   double im;
   double (*getRe)(struct complex *);
