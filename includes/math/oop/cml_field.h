@@ -4,8 +4,6 @@
 
 typedef struct field
 {
-  // Parent
-  Field * super;
   // Composition laws
   struct field * (*add)(struct field *, struct field *);
   struct field * (*prod)(struct field *, struct field *);

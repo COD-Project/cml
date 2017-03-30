@@ -22,8 +22,6 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 // Constructor
 Field * Field_new()
 {
-  // Parent constructor
-  self->super = Field_new(self->super);
   self = malloc(4*sizeof(double) + 3*sizeof(&field_add));
   self->add = &field_add;
   self->prod = &field_prod;
