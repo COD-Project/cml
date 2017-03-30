@@ -1,4 +1,5 @@
 SOURCE_FOLDER=./src
+MATH_FOLDER=$(SOURCE_FOLDER)/math
 INCLUDES_FOLDER=./src/includes
 TEST_FOLDER=./tests/src
 BUILD_FOLDER=./tests/.build
@@ -24,7 +25,7 @@ DEBUG=-g
 all:	folders c.o
 
 c.o:
-	gcc $(TEST_FOLDER)/main.c $(SOURCE_FOLDER)/oop/Field.c $(SOURCE_FOLDER)/oop/Real.c $(SOURCE_FOLDER)/oop/Rational.c $(SOURCE_FOLDER)/oop/Complex.c $(SOURCE_FOLDER)/usefull_functions.c $(SOURCE_FOLDER)/general_functions.c $(SOURCE_FOLDER)/euclidean_trigonometry.c $(SOURCE_FOLDER)/non_euclidean_trigonometry.c $(SOURCE_FOLDER)/euclidean_geometry.c $(SOURCE_FOLDER)/non_euclidean_geometry.c $(SOURCE_FOLDER)/calculus.c -o $(BUILD_FOLDER)/$(TEST_OUTPUT_NAME) $(CFLAGS) $(DEBUG)
+	gcc $(TEST_FOLDER)/main.c $(SOURCE_FOLDER)/core.c $(MATH_FOLDER)/oop/Field.c $(MATH_FOLDER)/oop/Real.c $(MATH_FOLDER)/oop/Rational.c $(MATH_FOLDER)/oop/Complex.c $(MATH_FOLDER)/usefull_functions.c $(MATH_FOLDER)/general_functions.c $(MATH_FOLDER)/euclidean_trigonometry.c $(MATH_FOLDER)/non_euclidean_trigonometry.c $(MATH_FOLDER)/euclidean_geometry.c $(MATH_FOLDER)/non_euclidean_geometry.c $(MATH_FOLDER)/calculus.c -o $(BUILD_FOLDER)/$(TEST_OUTPUT_NAME) $(CFLAGS) $(DEBUG)
 
 
 clean:
@@ -35,15 +36,3 @@ folders:
 
 test:
 	$(BUILD_FOLDER)/$(TEST_OUTPUT_NAME)
-
-bytes:
-	@echo Bytes per file:
-	@wc -c $(SOURCE_FOLDER)/** $(INCLUDES_FOLDER)/** makefile
-
-char:
-	@echo Characts per file:
-	@wc -m $(SOURCE_FOLDER)/** $(INCLUDES_FOLDER)/** makefile
-
-lines:
-	@echo Code lines per file:
-	@wc -l $(SOURCE_FOLDER)/** $(INCLUDES_FOLDER)/** makefile

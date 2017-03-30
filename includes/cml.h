@@ -2,16 +2,16 @@
 #define CML_H
 
 
-/* Some setting libraries */
-#include "cml_config.h"
+/* Core */
+#include "core/core.h"
 
 
 /* ------------------- */
-#include "cml_types.h"
-#include "cml_consts.h"
-#include "cml_geometry.h"
-#include "cml_basic_functions.h"
-#include "cml_trigonometry.h"
-#include "cml_calculus.h"
+#include "math/cml_types.h"
+#include "math/cml_consts.h"
+#include "math/cml_geometry.h"
+#include "math/cml_basic_functions.h"
+#include "math/cml_trigonometry.h"
+#include "math/cml_calculus.h"
 
 #endif

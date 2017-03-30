@@ -5,6 +5,6 @@
 #include <stdlib.h>
 #include <float.h>
 
-#define TOPL      100000                    /* Top limit for Taylor Series */
+#define TOPL      100000     /* Top limit for Taylor Series */
 
 #endif

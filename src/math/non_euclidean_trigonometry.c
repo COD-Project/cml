@@ -16,7 +16,7 @@ You should have received a copy of the GNU General Public License
 along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
 #define NEUT_H
-#include "../includes/cml.h"
+#include "../../includes/cml.h"
 
 /**
   * Hyperbolic Functions using Euler relationships and Taylor Series

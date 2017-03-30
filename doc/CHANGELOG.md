@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 ### Added
 - mathematical field C-like object
 
+### Changed
+- filesystem changes
+
 ## 0.3 - 3/30/2017
 ### Added
 - new types added
