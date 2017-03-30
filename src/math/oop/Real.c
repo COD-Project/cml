@@ -22,9 +22,10 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 // Constructor
 Real * Real_new()
 {
+  Real * self;
+  self = malloc(4*sizeof(double) + 8*sizeof(&get_real));
   // Parent constructor
   self->super = Field_new(self->super);
-  self = malloc(4*sizeof(double) + 8*sizeof(&get_real));
   self->getRe = &get_real;
   self->setRe = &set_real;
   self->add = &real_add;

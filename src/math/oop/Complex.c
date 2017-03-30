@@ -22,9 +22,10 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 // Constructor
 Complex * Complex_new()
 {
+  Complex * self;
+  self = malloc(4*sizeof(double) + 8*sizeof(&get_complex_argument));
   // Parent constructor
   self->super = Field_new(self->super);
-  self = malloc(4*sizeof(double) + 8*sizeof(&get_complex_argument));
   self->getRe = &get_complex_real;
   self->setRe = &set_complex_real;
   self->getIm = &get_complex_im;

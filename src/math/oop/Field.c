@@ -22,6 +22,7 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 // Constructor
 Field * Field_new()
 {
+  Field * self;
   self = malloc(4*sizeof(double) + 3*sizeof(&field_add));
   self->add = &field_add;
   self->prod = &field_prod;
@@ -29,14 +30,14 @@ Field * Field_new()
 }
 
 // Composition laws
-void field_add(Field * self, Field * r1)
+void field_add()
 {
-  printf("%s\n", 'This function must be re-implemented in each of the children of the hierarchy');
+  printf("%s\n", "This function must be re-implemented in each of the children of the hierarchy");
 }
 
-void field_prod(Field * self, Field * r1)
+void field_prod()
 {
-  printf("%s\n", 'This function must be re-implemented in each of the children of the hierarchy');
+  printf("%s\n", "This function must be re-implemented in each of the children of the hierarchy");
 }
 
 // Destructor

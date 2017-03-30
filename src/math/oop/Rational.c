@@ -22,9 +22,10 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 // Constructor
 Rational * Rational_new()
 {
+  Rational * self;
+  self = malloc(4*sizeof(double) + 8*sizeof(&get_rational));
   // Parent constructor
   self->super = Field_new(self->super);
-  self = malloc(4*sizeof(double) + 8*sizeof(&get_rational));
   self->getNum = &get_rational_num;
   self->getDen = &get_rational_den;
   self->getReal = &get_rational;
