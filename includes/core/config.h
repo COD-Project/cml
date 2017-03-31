@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <float.h>
 
-#define TOPL 100000     /* Top limit for Taylor Series */
+#define __ROOT__ "cml/"
+#define TOPL      100000     /* Top limit for Taylor Series */
 
 #endif

@@ -59,9 +59,9 @@ void set_rational_den(Rational * self, int den)
 
 Real * get_rational(Rational * self)
 {
-  Real * rational = Real_new();
-  rational->setRe(rational, (self->getNum(self)/self->getDen(self)));
-  return rational;
+  Real * r = Real_new();
+  r->setRe(r, (self->getNum(self)/self->getDen(self)));
+  return r;
 }
 
 Rational * rational_add(Rational * self, Rational * r1)

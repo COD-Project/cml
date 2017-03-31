@@ -6,7 +6,9 @@ typedef struct real
 {
   // Parent
   Field * super;
+  // Instance variables
   double re;
+  // Methods
   double (*getRe)(struct real *);
   void (*setRe)(struct real *, double);
   // Composition laws

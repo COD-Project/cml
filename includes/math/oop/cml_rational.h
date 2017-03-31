@@ -6,8 +6,10 @@ typedef struct rational
 {
   // Parent
   Field * super;
+  // Instance variables
   int num;
   int den;
+  // Methods
   int (*getNum)(struct rational *);
   void (*setNum)(struct rational *, int);
   int (*getDen)(struct rational *);

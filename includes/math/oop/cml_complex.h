@@ -6,8 +6,10 @@ typedef struct complex
 {
   // Parent
   Field * super;
+  // Instance variables
   double re;
   double im;
+  // Methods
   double (*getRe)(struct complex *);
   void (*setRe)(struct complex *, double);
   double (*getIm)(struct complex *);
