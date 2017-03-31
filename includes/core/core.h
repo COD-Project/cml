@@ -5,5 +5,8 @@
 #include "config.h"
 
 /* kernel structure */
+typedef struct kernel {
+  
+} Kernel;
 
 #endif
