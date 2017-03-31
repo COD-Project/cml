@@ -108,7 +108,7 @@ double m_atanh(double x)
 {
   int i;
   if (m_fabs(x) >= 1) {
-    return 0;
+    return NAN;
   }
   double ai_n = x, p = ai_n;
   for (i = 1; i <= TOPL; i += 2) {

@@ -23,7 +23,6 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
   * Basic trigonometric functions
   */
 
-
 /**
   * sin(x) function developed by using Taylor Series
   *
@@ -117,12 +116,12 @@ double m_atan(double x)
 {
   /*
   int i;
-  double ai_n = x,
-         p = ai_n;
-  int top = (int) TOPL/2.0;
+  double ai_n = x;
+  double p = ai_n;
+  int top = 500;
   for (i = 1; i <= top; i += 2) {
     ai_n = -ai_n*x*x;
-    p = p + ai_n/(i+2);
+    p = p + ai_n/((double)i+2.0);
   }
   return p;
   */
