@@ -20,75 +20,87 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
 
 // Constructor
-Complex * Complex_new()
+Complex * Complex_new(double re, double im)
 {
   Complex * self;
-  self = malloc(4*sizeof(double) + 8*sizeof(&get_complex_argument));
+  self = malloc(4*sizeof(double) + 45*sizeof(void *));
   // Parent constructor
   self->super = Field_new(self->super);
-  self->getRe = &get_complex_real;
-  self->setRe = &set_complex_real;
-  self->getIm = &get_complex_im;
-  self->setIm = &set_complex_im;
-  self->getArg = &get_complex_argument;
-  self->getMod = &get_complex_module;
+  // Methods
+  self->getRe = &complex_get_real_part;
+  self->setRe = &complex_set_real_part;
+  self->getIm = &complex_get_imaginary_part;
+  self->setIm = &complex_set_imaginary_part;
+  self->getElements = &complex_get_elements;
+  // Functions
+  self->abs = &complex_abs;
   self->add = &complex_add;
   self->prod = &complex_prod;
-  self->setRe(self, 0.0);
-  self->setIm(self, 0.0);
+  self->sub = &complex_sub;
+  self->div = &complex_div;
+  self->exp = &complex_exp;
+  /*
+  self->ln = &complex_ln;
+  self->logE = &complex_logE;
+  self->logB = &complex_logB;
+  self->log = &complex_log;
+  self->pow = &complex_pow;
+  self->root = &complex_root;
+  self->sqrt = &complex_sqrt;
+  */
+  self->inverse = &complex_inverse;
+  self->conj = &complex_conj;
+  // self->rotate = &complex_rotate;
+  self->sin = &complex_sin;
+  self->cos = &complex_cos;
+  self->tan = &complex_tan;
+  self->sec = &complex_sec;
+  self->csc = &complex_csc;
+  self->cot = &complex_cot;
+  // self->atan = &complex_atan;
+  // self->atan2 = &complex_atan2;
+  self->sinh = &complex_sinh;
+  self->cosh = &complex_cosh;
+  self->tanh = &complex_tanh;
+  self->sech = &complex_sech;
+  self->csch = &complex_csch;
+  self->coth = &complex_coth;
+  // self->atanh = &complex_atanh;
+  self->destruct = &Complex_destruct;
+  self->setRe(self, re);
+  self->setIm(self, im);
   return self;
 }
 
 
 // Methods
-double get_complex_real(Complex * self)
+Real * complex_get_real_part(Complex * self)
 {
-  return self->re;
+  return self->real_part;
 }
 
-void set_complex_real(Complex * self, double re)
+void complex_set_real_part(Complex * self, double real_part)
 {
-  self->re = re;
+  self->real_part = Real_new(real_part);
 }
 
-double get_complex_im(Complex * self)
+Real * complex_get_imaginary_part(Complex * self)
 {
-  return self->im;
+  return self->imaginary_part;
 }
 
-void set_complex_im(Complex * self, double im)
+void complex_set_imaginary_part(Complex * self, double imaginary_part)
 {
-  self->im = im;
+  self->imaginary_part = Real_new(imaginary_part);
 }
 
-double get_complex_module(Complex * self)
+Real ** complex_get_elements(Complex * self)
 {
-  return m_pit(self->getRe(self), self->getIm(self));
+  Real ** elements = malloc(sizeof(* elements));
+  elements[0] = self->getRe(self);
+  elements[1] = self->getIm(self);
+  return elements;
 }
-
-double get_complex_argument(Complex * self)
-{
-  return m_atan2(self->getIm(self), self->getRe(self));
-}
-
-
-// Composition laws
-Complex * complex_add(Complex * self, Complex * z1)
-{
-  Complex * z = Complex_new();
-  z->setRe(z, self->getRe(self) + z1->getRe(z1));
-  z->setIm(z, self->getIm(self) + z1->getIm(z1));
-  return z;
-}
-
-Complex * complex_prod(Complex * self, Complex * z1)
-{
-  Complex * z = Complex_new();
-  z->setMod(z, self->getMod(self)*z1->getMod(z1));
-  z->setArg(z, self->getArg(self)*z1->getMod(z1));
-  return z;
-}
-
 
 // Destructor
 void Complex_destruct(Complex * self)

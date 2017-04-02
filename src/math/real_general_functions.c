@@ -15,7 +15,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-#define BAF_H
+#define RBAF_H
 #include "../../includes/cml.h"
 
 
@@ -27,128 +27,101 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
   * ln(x) function developed by using hyperbolic definition of Taylor Series
   * where ln(x) = arctanh((x^2 - 1)/(x^2 - 1)) (this is not the best way to do this!)
   *
-  * @param double x
+  * @param Real * x
   *
-  * @return double log(x)
+  * @return Real * log(x)
   */
-double m_ln(double x)
+Real * real_ln(Real * x)
 {
-  return (x > 0) ? m_atanh((x*x - 1)/(x*x + 1)) : NAN;
+  Real * z = x->prod(x, x);
+  Real * z_1 = z->sub(z, Real_new(1));
+  Real * z2 = z->add(z, Real_new(1));
+  Real * z1 = z_1->div(z_1, z2);
+  return (x->get(x) > 0) ? z1->atanh(z1) : Real_new(NAN);
 }
 
-
-
-/**
-  * ln(x) function developed by using Riemman Sum Function
-  *
-  * @param double x
-  *
-  * @return double ln(x)
-
-double m_ln(double t)
+Real * real_logE(Real * x)
 {
-  if (t <= 0) {
-    return NAN;
-  }
-  int partitions = TOPL;
-  double sum = 0.0,
-         x = 0.0,
-         ls = t,
-         li = 1.0,
-         mediumPoint,
-         deltaX,
-         deltaT;
-
-  deltaT = ls - li;
-  deltaX = deltaT/partitions;
-  x = li;
-
-  while (x < ls) {
-    mediumPoint = (x + (x + deltaX))/2.0;
-    sum = sum + deltaX/mediumPoint;
-    x = x + deltaX;
-  }
-
-  return sum;
-}
-*/
-
-double m_logE(double x)
-{
-  return m_ln(x);		/* Natural log */
+  return x->ln(x);		/* Natural log */
 }
 
 /**
   * The logarithm logb(x) can be computed from the logarithms of x and b with respect to an arbitrary base k using the following formula:
   * log_b{x} = log_k{x} / log_k(b)
   *
-  * @param double x
+  * @param Real * x
   *
-  * @return double log_b(x)
+  * @return Real * log_b(x)
   */
 
-double m_logB(double x, double y)
+Real * real_logB(Real * x, Real * y)
 {
-  return (m_ln(y) == 0) ? NAN : m_ln(x)/m_ln(y);
+  Real * z = y->ln(y);
+  Real * z1 = x->ln(x);
+  return (y->get(y) == 0) ? Real_new(NAN) : z1->div(z1, z);
 }
 
-double m_log(double x)
+Real * real_log(Real * x)
 {
-  return m_logB(x, 10.0);
+  return x->logB(x, Real_new(10.0));
 }
 
 /**
   * Development of the Taylor series of the function e^x
   *
-  * @param double x: Exponent of the function
+  * @param Real * x: Exponent of the function
   *
-  * @return double e^x
+  * @return Real * e^x
   */
-double m_exp(double x)
+Real * real_exp(Real * x)
 {
   int i;
   double ai = 1.0,
-         ex = ai;
+      ex = ai;
   for (i = 1; i <= TOPL; i++) {
-    ai = ai*x/i;
+    ai = ai*(x->get(x))/i;
     ex = ex + ai;
   }
-  return ex;
+  return Real_new(ex);
 }
 
 /**
   * pow(f, g) function developed by using the exponentiation process
   * where pow(f, g) = sgn(f)e^(glog(|f|))
   *
-  * @param double x
+  * @param Real * x
   *
-  * @return double pow(f, g)
+  * @return Real * pow(f, g)
   */
-double m_pow(double f, double g)
+Real * real_pow(Real * f, Real * g)
 {
-  return (f == 0) ? ((g == 0) ? NAN : 0) : m_exp(g*m_ln(m_fabs(f)))*m_sgn(f);
+  Real * z = f->abs(f);
+  Real * z_1 = z->ln(z);
+  Real * z_2 = z_1->prod(z_1, g);
+  Real * z1 = z_2->exp(z_2);
+  return (f->get(f) == 0) ? ((g->get(g) == 0) ? Real_new(NAN) : Real_new(0)) : z1->prod(z1, f->sgn(f));
 }
 
 /**
   * root(f, g) function developed by using the exponentiation process
   *
-  * @param double x
+  * @param Real * x
   *
-  * @return double root(f, g)
+  * @return Real * root(f, g)
   */
-double m_root(double f, int g)
+Real * real_root(Real * f, Real * g)
 {
-  return (isnat(g) == 1) ? m_pow(f, m_pow(g, -1)) : NAN;
+  return (isnat(g->get(g)) == 1) ? f->pow(f, g->pow(g, Real_new(-1))) : Real_new(NAN);
 }
 
 /**
   * square root(f, g) function developed by using the exponentiation process
   *
-  * @param double x
+  * @param Real * x
   *
-  * @return double sqrt(f, g)
+  * @return Real * sqrt(f, g)
   */
-double m_sqrt(double f)
+Real * real_sqrt(Real * f)
 {
-  return (f >= 0) ? m_root(f, 2) : NAN;
+  return (f->get(f) >= 0) ? f->root(f, Real_new(2.0)) : Real_new(NAN);
 }

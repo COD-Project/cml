@@ -1,10 +1,10 @@
-#ifndef CALC_H
-#define CALC_H
+#ifndef RCALC_H
+#define RCALC_H
 
 
-double m_gf(double, ...);
-double m_gamma(double, ...);
-double m_f(double, ...);
-double m_rs(double, ...);
+real real_gf(real, ...);
+real real_gamma(real, ...);
+real real_f(real, ...);
+real real_rs(real, ...);
 
 #endif

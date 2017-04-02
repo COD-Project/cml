@@ -20,43 +20,67 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
 
 // Constructor
-Real * Real_new()
+Real * Real_new(double re)
 {
   Real * self;
-  self = malloc(4*sizeof(double) + 8*sizeof(&get_real));
+  self = malloc(4*sizeof(double) + 50*sizeof(&get_real));
   // Parent constructor
   self->super = Field_new(self->super);
-  self->getRe = &get_real;
-  self->setRe = &set_real;
+  self->get = &get_real;
+  self->set = &set_real;
+  // Functions
+  self->sgn = &real_sgn;
+  self->abs = &real_abs;
   self->add = &real_add;
   self->prod = &real_prod;
-  self->setRe(self, 0.0);
+  self->sub = &real_sub;
+  self->div = &real_div;
+  self->divE = &real_div_e;
+  self->mod = &real_mod;
+  self->ared = &real_ared;
+  self->fact = &real_fact;
+  self->ceil = &real_ceil;
+  self->floor = &real_floor;
+  self->exp = &real_exp;
+  self->ln = &real_ln;
+  self->logE = &real_logE;
+  self->logB = &real_logB;
+  self->log = &real_log;
+  self->pow = &real_pow;
+  self->root = &real_root;
+  self->sqrt = &real_sqrt;
+  self->pit = &real_pit;
+  self->sin = &real_sin;
+  self->cos = &real_cos;
+  self->tan = &real_tan;
+  self->sec = &real_sec;
+  self->csc = &real_csc;
+  self->cot = &real_cot;
+  /*
+  self->atan = &real_atan;
+  self->atan2 = &real_atan2;
+  */
+  self->sinh = &real_sinh;
+  self->cosh = &real_cosh;
+  self->tanh = &real_tanh;
+  self->sech = &real_sech;
+  self->csch = &real_csch;
+  self->coth = &real_coth;
+  self->atanh = &real_atanh;
+  self->destruct = & Real_destruct;
+  self->set(self, re);
   return self;
 }
 
 // Methods
 double get_real(Real * self)
 {
-  return self->re;
+  return self->real_part;
 }
 
 void set_real(Real * self, double re)
 {
-  self->re = re;
-}
-
-Real * real_add(Real * self, Real * r1)
-{
-  Real * z = Real_new();
-  z->setRe(z, self->getRe(self) + r1->getRe(r1));
-  return z;
-}
-
-Real * real_prod(Real * self, Real * r1)
-{
-  Real * z = Real_new();
-  z->setRe(z, self->getRe(self)*r1->getRe(r1));
-  return z;
+  self->real_part = re;
 }
 
 // Destructor

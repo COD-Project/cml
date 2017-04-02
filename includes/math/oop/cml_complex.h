@@ -2,41 +2,79 @@
 #define COMPLEX_H
 
 
-typedef struct complex
+typedef struct _complex
 {
   // Parent
   Field * super;
   // Instance variables
-  double re;
-  double im;
+  Real * real_part;
+  Real * imaginary_part;
   // Methods
-  double (*getRe)(struct complex *);
-  void (*setRe)(struct complex *, double);
-  double (*getIm)(struct complex *);
-  void (*setIm)(struct complex *, double);
-  double (*getMod)(struct complex *);
-  void (*setMod)(struct complex *, double);
-  double (*getArg)(struct complex *);
-  void (*setArg)(struct complex *, double);
+  Real * (*getRe)(struct _complex *);
+  void (*setRe)(struct _complex *, double);
+  Real * (*getIm)(struct _complex *);
+  void (*setIm)(struct _complex *, double);
+  Real ** (*getElements)(struct _complex *);
+  // Functions
   // Composition laws
-  struct complex * (*add)(struct complex *, struct complex *);
-  struct complex * (*prod)(struct complex *, struct complex *);
+  struct _complex * (*add)(struct _complex *, struct _complex *);
+  struct _complex * (*prod)(struct _complex *, struct _complex *);
+  // ---> Usefull Functions <---
+  Real * (*abs)(struct _complex *);
+  struct _complex * (*conj)(struct _complex *);
+
+  // ---> Basic Functions <---
+  struct _complex * (*sub)(struct _complex *, struct _complex *);
+  struct _complex * (*div)(struct _complex *, struct _complex *);
+  // ---> Euler definitions <---
+  struct _complex * (*exp)(struct _complex *);
+
+  // ---> Usefull functions
+  // struct _complex * (*__ln)(struct _complex *, );
+  struct _complex * (*ln)(struct _complex *);
+  struct _complex * (*logE)(struct _complex *);
+  struct _complex * (*logB)(struct _complex *, Real *);
+  struct _complex * (*log)(struct _complex *);
+  struct _complex * (*pow)(struct _complex *, Real *);
+  struct _complex * (*root)(struct _complex *, Real *);
+  struct _complex * (*sqrt)(struct _complex *);
+  struct _complex * (*inverse)(struct _complex *);
+  void (*rotate)(struct _complex *, Real *);
+
+  // ---> Basic trigonometric functions <---
+  struct _complex * (*sin)(struct _complex *);
+  struct _complex * (*cos)(struct _complex *);
+  struct _complex * (*tan)(struct _complex *);
+  struct _complex * (*sec)(struct _complex *);
+  struct _complex * (*csc)(struct _complex *);
+  struct _complex * (*cot)(struct _complex *);
+  /*
+  struct _complex * (*atan)(struct _complex *);
+  struct _complex * (*atan2)(struct _complex *);
+  */
+  // ---> Hyperbolic functions
+  struct _complex * (*sinh)(struct _complex *);
+  struct _complex * (*cosh)(struct _complex *);
+  struct _complex * (*tanh)(struct _complex *);
+  struct _complex * (*sech)(struct _complex *);
+  struct _complex * (*csch)(struct _complex *);
+  struct _complex * (*coth)(struct _complex *);
+  struct _complex * (*atanh)(struct _complex *);
+
+  // Destructor
+  void (*destruct)(struct _complex *);
+
 } Complex;
 
 // Methods
-double get_complex_real(Complex *);
-void set_complex_real(Complex *, double);
-double get_complex_im(Complex *);
-void set_complex_im(Complex *, double);
-double get_complex_module(Complex *);
-double get_complex_argument(Complex *);
-
-// Composition laws
-Complex * complex_add(Complex *, Complex *);
-Complex * complex_prod(Complex *, Complex *);
+Real * complex_get_real_part(Complex *);
+void complex_set_real_part(Complex *, double);
+Real * complex_get_imaginary_part(Complex *);
+void complex_set_imaginary_part(Complex *, double);
+Real **complex_get_elements(Complex *);
 
 // Constructor && destructor
-Complex * Complex_new();
+Complex * Complex_new(double, double);
 void Complex_destruct(Complex *);
 
 #endif

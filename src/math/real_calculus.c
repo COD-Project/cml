@@ -15,30 +15,30 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-#define CALC_H
+#define RCALC_H
 #include "../../includes/cml.h"
 
 
 /** f is the function to be integrated into the Riemann sum function
   *
-  * @param double x
+  * @param Real * x
   *
-  * @return double f(x)
+  * @return Real * f(x)
   */
-double m_f(double x)
+/*Real * real_f(Real * x)
 {
   // you should define your own integrable function
   return x;
-}
+}*/
 
 /** This function performs Riemann sums with regular partitions in the interval [li, ls] for the function f(x)
   *
-  * @param double li
-  * @param double ls
+  * @param Real * li
+  * @param Real * ls
   *
-  * @return double riemann_sum(li, ls)
+  * @return Real * riemann_sum(li, ls)
   */
-double m_rs(double li, double ls, double (*f)(double, ...), double z)
+/*Real * real_rs(Real * li, Real * ls, Real * (*f)(Real *, ...), Real * z)
 {
   int partitions = TOPL;
   double sum = 0.0,
@@ -47,7 +47,7 @@ double m_rs(double li, double ls, double (*f)(double, ...), double z)
          deltaX,
          deltaT;
 
-  deltaT = ls - li;
+  deltaT = ls->get(ls) - li->get(li);
   deltaX = deltaT/partitions;
   x = li;
 
@@ -58,21 +58,21 @@ double m_rs(double li, double ls, double (*f)(double, ...), double z)
   }
 
   return sum;
-}
+}*/
 
 
 /** Gamma Function
   *
-  * @param double x
+  * @param Real * x
   *
-  * @return double gamma(x)
+  * @return Real * gamma(x)
   */
-double m_gf(double t, double z)
+/*Real * real_gf(Real * t, Real * z)
 {
-  return m_pow(t, z + 1)*m_pow(E, -t);
+  return real_pow(t, z + 1)*real_pow(E, -t);
 }
 
-double m_gamma(double z)
+Real * real_gamma(Real * z)
 {
   return z;
-}
+}*/

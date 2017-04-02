@@ -15,17 +15,20 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-
 #include "../../includes/cml.h"
 
-void test()
-{
-  Real * x = Real_new(1.0);
-  Real * y = x->sinh(x);
-  printf("%g\n", y->get(y));
-}
 
-int main(int argc, char const *argv[]) {
-  test();
-  return 0;
+/**
+  * Exp(Z) = e^Z = (e^a * Cos(b) + e^a * Sin(b)i)
+  *
+  * @param Complex * x: Exponent of the function
+  *
+  * @return Complex * e^z
+  */
+Complex * complex_exp(Complex * self)
+{
+  Real ** x = self->getElements(self);
+  Real * a = real_prod(x[0]->exp(x[0]), x[1]->cos(x[1]));
+  Real * b = real_prod(x[0]->exp(x[0]), x[1]->sin(x[1]));
+  return Complex_new(a->get(a), b->get(b));
 }

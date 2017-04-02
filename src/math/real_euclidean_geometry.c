@@ -15,17 +15,14 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-
+#define REUG_H
 #include "../../includes/cml.h"
 
-void test()
-{
-  Real * x = Real_new(1.0);
-  Real * y = x->sinh(x);
-  printf("%g\n", y->get(y));
-}
 
-int main(int argc, char const *argv[]) {
-  test();
-  return 0;
+Real * real_pit(Real * x, Real * y)
+{
+  Real * z = x->pow(x, Real_new(2.0));
+  Real * z1 = y->pow(y, Real_new(2.0));
+  Real * z2 = x->add(z, z1);
+  return z2->sqrt(z2);
 }

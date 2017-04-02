@@ -15,11 +15,5 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-#define EUG_H
+#define RNEUG_H
 #include "../../includes/cml.h"
-
-
-double m_pit(double x, double y)
-{
-  return m_sqrt(m_pow(x, 2.0) + m_pow(y, 2.0));
-}
