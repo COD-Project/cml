@@ -22,7 +22,11 @@ void test()
 {
   Real * x = Real_new(1.0);
   Real * y = x->sinh(x);
+  Complex * z = Complex_new(1.0, 2.0);
+  Complex * zsin = z->sin(z);
+  Real ** x1 = zsin->getElements(zsin);
   printf("%g\n", y->get(y));
+  printf("%g%s%g%c\n", x1[0]->get(x1[0]), " + ", x1[1]->get(x1[1]), 'i');
 }
 
 int main(int argc, char const *argv[]) {
