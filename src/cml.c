@@ -19,29 +19,8 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 #include "../includes/cml.h"
 
 
-// Constructor
-Kernel * Kernel_new()
+__inline void cml__init__()
 {
-  Kernel * self;
-  self = malloc(4*sizeof(&cml_core_malloc));
-  self->malloc = &cml_core_malloc;
-  self->getRoot = &cml_core_get_root;
-  self->include = &cml_core_include;
-  return self;
-}
-
-// Methods
-void cml_core_malloc(void * object, int inst_var, int methods)
-{
-  object = malloc(inst_var*sizeof(double) + methods*sizeof(&cml_core_malloc));
-}
-
-char * cml_core_get_root()
-{
-  return __ROOT__;
-}
-
-void cml_core_include(char * lib)
-{
-  /* code */
+  const void * objects[] = {};
+  const Kernel * cml = Kernel_new();
 }

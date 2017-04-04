@@ -18,16 +18,25 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
 #include "../../includes/cml.h"
 
-void test()
+
+// Constructor
+Kernel * Kernel_new()
 {
-  Real * x = Real_new(1.0);
-  Real * y = x->sinh(x);
-  printf("%g\n", y->get(y));
+  Kernel * self;
+  self = malloc(4*sizeof(&cml_core_add));
+  self->add = &cml_core_add;
+  self->destruct = &cml_core_destruct;
+  return self;
 }
 
-int main(int argc, char const *argv[]) {
-  /* main cml function */
-  cml__init__();
-  test();
-  return 0;
+
+// Methods
+void cml_core_add(void ** array)
+{
+
+}
+
+void cml_core_destruct(void ** array)
+{
+
 }
