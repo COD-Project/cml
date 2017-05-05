@@ -11,6 +11,7 @@ typedef struct _real
   // Methods
   double (*get)(struct _real *);
   void (*set)(struct _real *, double);
+  char * (*toString)(struct _real *);
 
   // Composition laws
   struct _real * (*add)(struct _real *, struct _real *);
@@ -32,7 +33,6 @@ typedef struct _real
   struct _real * (*exp)(struct _real *);
 
   // ---> Usefull functions
-  // struct _real * (*__ln)(struct _real *, );
   struct _real * (*ln)(struct _real *);
   struct _real * (*logE)(struct _real *);
   struct _real * (*logB)(struct _real *, struct _real *);
@@ -50,10 +50,8 @@ typedef struct _real
   struct _real * (*sec)(struct _real *);
   struct _real * (*csc)(struct _real *);
   struct _real * (*cot)(struct _real *);
-  /*
   struct _real * (*atan)(struct _real *);
   struct _real * (*atan2)(struct _real *);
-  */
   // ---> Hyperbolic functions
   struct _real * (*sinh)(struct _real *);
   struct _real * (*cosh)(struct _real *);

@@ -21,8 +21,5 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
 Real * real_pit(Real * x, Real * y)
 {
-  Real * z = x->pow(x, Real_new(2.0));
-  Real * z1 = y->pow(y, Real_new(2.0));
-  Real * z2 = x->add(z, z1);
-  return z2->sqrt(z2);
+  return real_sqrt(real_add(x->pow(x, Real_new(2.0)), y->pow(y, Real_new(2.0))));
 }

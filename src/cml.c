@@ -19,8 +19,7 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 #include "../includes/cml.h"
 
 
-__inline void cml__init__()
+__inline void __cml_init__()
 {
-  const void * objects[] = {};
-  const Kernel * cml = Kernel_new();
+  
 }

@@ -18,6 +18,8 @@
 #define TWOPI	    6.28318530717958647692
 #define RADPDEG   0.01745329251994329576
 
+#define I real_sqrt(Real_new(-1.0));
+
 #endif
 
 /* EOF */

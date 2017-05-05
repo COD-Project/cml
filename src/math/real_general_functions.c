@@ -95,11 +95,8 @@ Real * real_exp(Real * x)
   */
 Real * real_pow(Real * f, Real * g)
 {
-  Real * z = f->abs(f);
-  Real * z_1 = z->ln(z);
-  Real * z_2 = z_1->prod(z_1, g);
-  Real * z1 = z_2->exp(z_2);
-  return (f->get(f) == 0) ? ((g->get(g) == 0) ? Real_new(NAN) : Real_new(0)) : z1->prod(z1, f->sgn(f));
+  Real * z = real_exp(real_prod(real_ln(f->abs(f)), g));
+  return (f->get(f) == 0) ? ((g->get(g) == 0) ? Real_new(NAN) : Real_new(0)) : z->prod(z, f->sgn(f));
 }
 
 /**

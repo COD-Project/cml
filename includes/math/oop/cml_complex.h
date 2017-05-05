@@ -15,6 +15,8 @@ typedef struct _complex
   Real * (*getIm)(struct _complex *);
   void (*setIm)(struct _complex *, double);
   Real ** (*getElements)(struct _complex *);
+  char * (*toString)(struct _complex *);
+
   // Functions
   // Composition laws
   struct _complex * (*add)(struct _complex *, struct _complex *);
@@ -30,7 +32,6 @@ typedef struct _complex
   struct _complex * (*exp)(struct _complex *);
 
   // ---> Usefull functions
-  // struct _complex * (*__ln)(struct _complex *, );
   struct _complex * (*ln)(struct _complex *);
   struct _complex * (*logE)(struct _complex *);
   struct _complex * (*logB)(struct _complex *, Real *);
@@ -48,10 +49,8 @@ typedef struct _complex
   struct _complex * (*sec)(struct _complex *);
   struct _complex * (*csc)(struct _complex *);
   struct _complex * (*cot)(struct _complex *);
-  /*
   struct _complex * (*atan)(struct _complex *);
   struct _complex * (*atan2)(struct _complex *);
-  */
   // ---> Hyperbolic functions
   struct _complex * (*sinh)(struct _complex *);
   struct _complex * (*cosh)(struct _complex *);
@@ -72,6 +71,7 @@ void complex_set_real_part(Complex *, double);
 Real * complex_get_imaginary_part(Complex *);
 void complex_set_imaginary_part(Complex *, double);
 Real **complex_get_elements(Complex *);
+char * complex_to_string(Complex *);
 
 // Constructor && destructor
 Complex * Complex_new(double, double);

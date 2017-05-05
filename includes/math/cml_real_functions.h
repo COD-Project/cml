@@ -7,6 +7,8 @@ Real * real_sgn(Real *);
 Real * real_abs(Real *);
 
 // ---> Basic Functions <---
+Real * real_floor(Real *);
+Real * real_ceil(Real *);
 Real * real_add(Real *, Real *);
 Real * real_prod(Real *, Real *);
 Real * real_sub(Real *, Real *);
@@ -15,8 +17,6 @@ Real * real_div_e(Real *, Real *);
 Real * real_mod(Real *, Real *);
 Real * real_ared(Real *);
 Real * real_fact(Real *);
-Real * real_ceil(Real *);
-Real * real_floor(Real *);
 
 #endif
 

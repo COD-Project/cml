@@ -32,6 +32,7 @@ Complex * Complex_new(double re, double im)
   self->getIm = &complex_get_imaginary_part;
   self->setIm = &complex_set_imaginary_part;
   self->getElements = &complex_get_elements;
+  // self->toString = &complex_to_string;
   // Functions
   self->abs = &complex_abs;
   self->add = &complex_add;
@@ -66,9 +67,9 @@ Complex * Complex_new(double re, double im)
   self->csch = &complex_csch;
   self->coth = &complex_coth;
   // self->atanh = &complex_atanh;
-  self->destruct = &Complex_destruct;
   self->setRe(self, re);
   self->setIm(self, im);
+
   return self;
 }
 

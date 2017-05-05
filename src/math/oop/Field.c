@@ -26,6 +26,7 @@ Field * Field_new()
   self = malloc(4*sizeof(double) + 3*sizeof(&field_add));
   self->add = &field_add;
   self->prod = &field_prod;
+
   return self;
 }
 

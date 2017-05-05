@@ -29,8 +29,7 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 Real * real_sin(Real * x)
 {
   Real * s = x->sgn(x);
-  Real * y1 = x->abs(x);
-  Real * y = y1->ared(y1);
+  Real * y = real_ared(x->abs(x));
   double ai_n = y->get(y);
   double p = ai_n;
   int i;

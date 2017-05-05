@@ -41,8 +41,7 @@ Complex * complex_prod(Complex * self, Complex * z1)
 Complex * complex_sub(Complex * self, Complex * z1)
 {
   Real ** x = z1->getElements(z1);
-  Complex * z = Complex_new(-x[0]->get(x[0]), -x[1]->get(x[1]));
-  return self->add(self, z);
+  return self->add(self, Complex_new(-x[0]->get(x[0]), -x[1]->get(x[1])));
 }
 
 Complex * complex_div(Complex * self, Complex * y)

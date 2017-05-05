@@ -69,6 +69,7 @@ Real * Real_new(double re)
   self->atanh = &real_atanh;
   self->destruct = & Real_destruct;
   self->set(self, re);
+
   return self;
 }
 

@@ -31,14 +31,7 @@ along with CML. If not, see <http://www.gnu.org/licenses/>.     */
   */
 Real * real_sinh(Real * x)
 {
-  Real * z = x->sgn(x);
-  Real * y = x->abs(x);
-  Real * z1 = y->exp(y);
-  Real * z_2 = Real_new(-y->get(y));
-  Real * z2 = z_2->exp(z_2);
-  Real * e = z1->sub(z1, z2);
-  int s = (int) z->get(z);
-  return Real_new(s*(e->get(e))/2);
+  return real_prod(x->sgn(x), real_div(real_sub(real_exp(x->sgn(x)), real_exp(real_prod(real_abs(x), Real_new(-1.0)))), Real_new(2.0)));
 }
 
 /**

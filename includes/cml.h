@@ -3,10 +3,7 @@
 
 
 /* Core */
-#include "core/core.h"
-
-extern const Kernel * cml;
-
+#include "core/config.h"
 /* ------------------- */
 #include "math/cml_types.h"
 #include "math/cml_consts.h"
@@ -21,6 +18,6 @@ extern const Kernel * cml;
 // Calculus
 #include "math/cml_calculus.h"
 
-void cml__init__();
+void __cml_init__();
 
 #endif
